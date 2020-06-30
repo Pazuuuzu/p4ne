@@ -2,7 +2,7 @@
 from matplotlib import pyplot
 from openpyxl import load_workbook as load
 
-XL = load('C:\\test\data_analysis_lab.xlsx')
+XL = load('data_analysis_lab.xlsx')
 
 List = XL['Data']
 
