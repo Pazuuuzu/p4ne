@@ -1,5 +1,7 @@
 from pysnmp.hlapi import *
-
+text = '____________________________________________'
+textIO = 'Версиия оборудования 10.31.70.107'
+textInt = 'Списк интерфейсов 10.31.70.107'
 ip = "10.31.70.107"
 port = 161
 community = 'public'
@@ -20,10 +22,13 @@ result2 = nextCmd(SnmpEngine(),
     lexicographicMode=False)
 
 
+print(text, textIO,text,sep='\n')
 
 for i in result:
     for y in i[3]:
         print(y)
+
+print(text, textInt,text, sep='\n')
 
 for i in result2:
     for y in i[3]:
