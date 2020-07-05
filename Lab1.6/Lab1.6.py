@@ -16,7 +16,7 @@ for file in way:
             if IP:
                 IPadd.append(ipaddress.IPv4Interface(str(IP.group(1)) + "/" + str(IP.group(3))))
             if Inter:
-                Interface.append(Inter.group(0))
+                Interface.append(Inter.group(1))
             if Host:
                 Hostname.append(Host.group(0))
 
