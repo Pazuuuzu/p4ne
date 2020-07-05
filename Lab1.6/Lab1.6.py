@@ -10,11 +10,11 @@ Hostname = []
 for file in way:
     with open(file) as newfile:
         for line in newfile:
-            IP = re.match("^ ip address ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+) ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)",line)
+            IP = re.match("^ ip address (([0-9]{1,3}\.){3}[0-9]{1,3}) (([0-9]{1,3}\.){3}[0-9]{1,3})",line)
             Inter = re.match("^interface (.+)", line)
             Host = re.match("^hostname (.+)", line)
             if IP:
-                IPadd.append(ipaddress.IPv4Interface(str(IP.group(1)) + "/" + str(IP.group(2))))
+                IPadd.append(ipaddress.IPv4Interface(str(IP.group(1)) + "/" + str(IP.group(3))))
             if Inter:
                 Interface.append(Inter.group(0))
             if Host:
