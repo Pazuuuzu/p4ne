@@ -3,8 +3,6 @@ import json
 import sys
 import re
 import glob
-import pprint
-import ipaddress
 
 
 tabl = {}
@@ -17,6 +15,7 @@ def index():
     return web
 
 @app.route('/configs')
+@app.route('/configs/')
 def host():
     hosts = []
     for x in tabl.keys():
@@ -39,11 +38,10 @@ if __name__ == '__main__':
     for file in way:
         with open(file) as newfile:
             for line in newfile:
+                IPadd = []
                 Host = re.match("^hostname (.+)", line)
                 if Host:
-
                     host = Host.group(1)
-                    IPadd = []
                 IP = re.match("^ ip address (([0-9]{1,3}\.){3}[0-9]{1,3}) (([0-9]{1,3}\.){3}[0-9]{1,3})", line)
                 if IP:
                     IPadd.append('IP address '+"%20s" % str(IP.group(1)) + "        Mask " + "%20s" % str(IP.group(3)))
