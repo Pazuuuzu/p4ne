@@ -23,7 +23,7 @@ def host():
 
 @app.route('/configs/<hostname>')
 def ip(hostname):
-    v = str('<h2><center><center><form action="http://127.0.0.1:5000/configs/" target="_self"><button  style="width:300px;height:30px">НАЗАД</button></form>')
+    v = str('<center><center><form action="http://127.0.0.1:5000/configs/" target="_self"><button  style="width:300px;height:30px">НАЗАД</button></form>')
     for y in tabl.keys():
         if y == hostname:
 
