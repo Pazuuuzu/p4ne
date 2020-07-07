@@ -39,7 +39,7 @@ def index():
 @app.route("/api/topology")
 def topology():
     ticket = nticket()
-    return jsonify(topolog(ticket))
+    return jsonify(topolog(ticket)['response'])
 @app.route("/api/device")
 def device2():
     ticket = nticket()
@@ -51,4 +51,4 @@ def host2():
 
 if __name__ == '__main__':
     ticket = nticket()
-    app.run(host='127.0.0.1', port=4005,debug=True)
+    app.run(host='127.0.0.1', port=4007,debug=True)
