@@ -1,9 +1,6 @@
-from flask import Flask, jsonify
-import json
-import sys
+from flask import Flask
 import re
 import glob
-import pprint
 import ipaddress
 
 
@@ -13,20 +10,20 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    web = "Бла Бла Бла Бла Бла"
+    web = '<h1><center>Я тут немного навоял<br><br><form action="http://127.0.0.1:5000/configs" target="_self"><button  style="width:300px;height:30px">Смотреть список хостов</button></center>'
     return web
 @app.route('/configs')
 @app.route('/configs/')
 def host():
-    hosts = str()
+    hosts = str('<h2><center><form action="http://127.0.0.1:5000/" target="_self"><button  style="width:300px;height:30px">НАЗАД</button></form>')
     for x in tabl.keys():
-        hosts = hosts+"<br>" + str(x)
+        hosts = hosts + '<form action="http://127.0.0.1:5000/configs/'+str(x)+'" target="_self"><button  style="width:300px;height:30px">'+str(x)+'</button></form>'
     return hosts
 
 
 @app.route('/configs/<hostname>')
 def ip(hostname):
-    v = str()
+    v = str('<h2><center><center><form action="http://127.0.0.1:5000/configs/" target="_self"><button  style="width:300px;height:30px">НАЗАД</button></form>')
     for y in tabl.keys():
         if y == hostname:
 
