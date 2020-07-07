@@ -1,8 +1,8 @@
-import requests, json, pprint
+import requests, json
 
 from flask import Flask
 from flask import jsonify
-
+from flask import render_template
 
 def nticket():
     url = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket'
@@ -39,21 +39,16 @@ def index():
 @app.route("/api/topology")
 def topology():
     ticket = nticket()
-    return jsonify(topolog(ticket)['response'])
-
+    return jsonify(topolog(ticket))
+@app.route("/api/device")
+def device2():
+    ticket = nticket()
+    return jsonify(device(ticket))
+@app.route("/api/host")
+def host2():
+    ticket = nticket()
+    return jsonify(host(ticket))
 
 if __name__ == '__main__':
-
     ticket = nticket()
-
-
-    print("Hosts = ")
-    pprint.pprint(host(ticket))
-
-    print("Devices = ")
-    pprint.pprint(device(ticket))
-
-    print("Topology = ")
-    pprint.pprint(topolog(ticket))
-
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=4005,debug=True)
