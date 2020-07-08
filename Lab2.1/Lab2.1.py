@@ -17,7 +17,7 @@ r = z.split('\n')
 inter = []
 
 for line in r:
-    Interface =  re.match("GigabitEthernet(.+)", line) or re.match("Loopback(.+)", line)or re.match("(.+)packets input(.+)", line)or re.match("(.+)packets output(.+)", line)
+    Interface =  re.match("GigabitEthernet(.)", line) or re.match("Loopback(.)", line)or re.match("(.+)packets input(.+)bytes", line)or re.match("(.+)packets output(.+)bytes", line)
     if Interface:
         inter.append(Interface.group(0))
 
